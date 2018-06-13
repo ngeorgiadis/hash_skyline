@@ -1,13 +1,14 @@
 # Hash Branch and Bound Skyline
 This project implements Branch and Bound Skyline.
 To efficient calculate the skyline in high dimensionality datasets
-the R-Tree has been replaced with hashing algorithms. 
-Four state-of-the-art hashing algorithms are used here instead of R-Tree.
+the R-Tree was replaced with hashing algorithms. 
+Four state-of-the-art hashing algorithms was used here instead of R-Tree.
 
 In the following paper there are details regarding performance
-and experimentation of different skyline calculation algorithms.
-Results of this study shows that hashing algorithms are more efficient 
-in high dimensional space.
+and experimentation of different skyline calculation strategies.
+The results of this study shows that calculating the skyline of
+hign dimensional data (i.e. image descriptor vectors) is better
+handled when using hashing structures as partitioning method.
 
 Nikolaos Georgiadis, Eleftherios Tiakas, and Yannis Manolopoulos. 2017. 
 Detecting Intrinsic Dissimilarities in Large Image Databases through Skylines. 
