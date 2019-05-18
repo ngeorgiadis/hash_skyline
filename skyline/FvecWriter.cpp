@@ -10,7 +10,7 @@ FvecWriter::FvecWriter(FILE* f)
 FvecWriter::FvecWriter(string file, bool append)
 {
 	string mode = append ? "ab" : "wb";
-	fopen_s(&_f, file.c_str(), mode.c_str());
+	_f = fopen(file.c_str(), mode.c_str());
 }
 
 FvecWriter::~FvecWriter()

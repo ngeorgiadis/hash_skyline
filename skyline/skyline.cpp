@@ -15,7 +15,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/random.hpp>
 
-#define SKYLINE_BUCKET 0;
+#define SKYLINE_BUCKET 0
 
 float sum(vector<float> v)
 {

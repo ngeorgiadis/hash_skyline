@@ -143,7 +143,7 @@ void Common::DecodeFvecBinary(string input, string output)
 	outTextFile.open(output);
 
 	FILE* f;
-	fopen_s(&f, input.c_str(), "rb");
+	f = fopen(input.c_str(), "rb");
 
 	int line_index = 0;
 	while (!feof(f))
@@ -175,7 +175,7 @@ void Common::DecodeNativeBinary(string input, string output)
 	outTextFile.open(output);
 
 	FILE* f;
-	fopen_s(&f, input.c_str(), "rb");
+	f = fopen(input.c_str(), "rb");
 
 	int line_index = 0;
 	while (!feof(f))

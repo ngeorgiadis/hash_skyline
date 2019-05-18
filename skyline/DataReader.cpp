@@ -5,7 +5,7 @@ DataReader::DataReader(const char* filename)
 {
 	_filename = filename;
 	_buffer = new char[_buffer_size];
-	fopen_s( &_f, _filename, "r");
+	_f = fopen(_filename, "r");
 	size_t n = fread(_buffer, sizeof(char), _buffer_size, _f);
 
 	//if file fits to buffer
@@ -23,7 +23,7 @@ DataReader::DataReader(const char* filename)
 
 	}
 
-	_line = strtok_s(_buffer, "\n", &_tok_context);
+	_line = strtok_r(_buffer, "\n", &_tok_context);
 	_eof = feof(_f) == 1 ? true : false;
 }
 
@@ -39,7 +39,7 @@ char* DataReader::Readline()
 		return _line;
 	}
 	
-	_line = strtok_s(nullptr, "\n", &_tok_context);
+	_line = strtok_r(nullptr, "\n", &_tok_context);
 
 	if (_line == nullptr && _last_block) {
 		_eof = true;
@@ -69,7 +69,7 @@ char* DataReader::Readline()
 			}
 
 		}
-		_line = strtok_s(_buffer, "\n", &_tok_context);
+		_line = strtok_r(_buffer, "\n", &_tok_context);
 	}
 	
 	if (_line == nullptr)
@@ -83,12 +83,12 @@ vec DataReader::LineToVector(char* line)
 	vector<double> vector;
 
 	char *context;
-	char* str = strtok_s(line, " ", &context);
+	char* str = strtok_r(line, " ", &context);
 
 	while (str != nullptr) {
 
 		vector.push_back(atof(str));
-		str = strtok_s(nullptr, " ", &context);
+		str = strtok_r(nullptr, " ", &context);
 
 	}
 
@@ -99,10 +99,10 @@ vector<float> DataReader::LineToFloatVector(char* line, const char* delimiter  )
 {
 	vector<float> vector;
 	char *context;
-	char* str = strtok_s(line, delimiter, &context);
+	char* str = strtok_r(line, delimiter, &context);
 	while (str != nullptr) {
 		vector.push_back(atof(str));
-		str = strtok_s(nullptr, delimiter, &context);
+		str = strtok_r(nullptr, delimiter, &context);
 	}
 	return vector;
 }
@@ -112,11 +112,11 @@ vec DataReader::LineToVector(char* line, const char* delimiter)
 	vector<double> vector;
 
 	char *context;
-	char* str = strtok_s(line, delimiter, &context);
+	char* str = strtok_r(line, delimiter, &context);
 	while (str != nullptr) {
 
 		vector.push_back(atof(str));
-		str = strtok_s(nullptr, delimiter, &context);
+		str = strtok_r(nullptr, delimiter, &context);
 
 	}
 

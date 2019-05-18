@@ -3,17 +3,18 @@
 
 
 ApplicationException::ApplicationException()
+	:runtime_error("An error occured")
 {
 }
 
 ApplicationException::ApplicationException(char* msg)
-	: exception(msg)
+	: runtime_error(msg)
 {
 	_msg = msg;
 }
 
 ApplicationException::ApplicationException(string msg)
-	: exception(msg.c_str())
+	: runtime_error(msg.c_str())
 {
 	_msg = const_cast<char*>(msg.c_str());
 }
