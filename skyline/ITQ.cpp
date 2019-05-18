@@ -70,7 +70,7 @@ mat ITQ::PCA(mat data, uword k)
 {
 	if (data.n_cols < k) {
 		char* buffer = new char[255];
-		sprintf_s(buffer, 255, "parameter K must be less than number of features (data.n_cols : %i, K: %i)", data.n_cols, k);
+		sprintf(buffer, "parameter K must be less than number of features (data.n_cols : %i, K: %i)", data.n_cols, k);
 		throw ApplicationException(buffer);
 	}
 

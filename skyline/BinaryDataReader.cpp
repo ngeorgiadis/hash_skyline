@@ -14,7 +14,7 @@ void BinaryDataReader::init()
 	fseek(_f, 0, SEEK_SET);
 
 	//read first 4bytes to find the size of vecetor
-	size_t c = fread_s(&_vector_size_items, 4, 4, 1, _f);
+	size_t c = fread(&_vector_size_items, 4, 1, _f);
 	_vector_size_bytes = 1 * _element_size + _vector_size_items * _element_size;
 
 	//total number of vectors
@@ -35,7 +35,7 @@ void BinaryDataReader::init()
 BinaryDataReader::BinaryDataReader(const char* filename)
 {
 	_filename = filename;
-	errno_t error = fopen_s(&_f, _filename, "rb");
+	_f = fopen( _filename, "rb");
 	_element_size = sizeof(float);
 	init();
 }

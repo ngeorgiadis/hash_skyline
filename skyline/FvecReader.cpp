@@ -4,7 +4,7 @@
 
 FvecReader::FvecReader(string filename)
 {
-	fopen_s(&f, filename.c_str(), "rb");
+	f = fopen( filename.c_str(), "rb");
 }
 
 FvecReader::~FvecReader()

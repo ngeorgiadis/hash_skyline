@@ -1,5 +1,5 @@
 #pragma once
-class ApplicationException : public exception
+class ApplicationException : public runtime_error
 {
 	char* _msg;
 public:
